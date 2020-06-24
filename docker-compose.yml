@@ -1,0 +1,17 @@
+version: '3.1'
+services:
+  web:
+    build: .
+    ports:
+      - 80:80
+    volumes:
+      - .:/code
+    environment:
+      NODE_ENV:
+  redis:
+    image: redis:alpine
+  postgres:
+    image: postgres:alpine
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
