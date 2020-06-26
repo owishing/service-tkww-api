@@ -1,6 +1,8 @@
 'use strict';
 
 const Redis = require('ioredis');
+const config = require('config').get('redis');
+const db = require('../../../models');
 
 const initRedis = ({host, port}) => {
     const redis = new Redis({ port, host });
@@ -16,5 +18,6 @@ const initRedis = ({host, port}) => {
 
 module.exports = function(options) {
     this.options = Object.assign(this.options, options);
-    this.redis = initRedis(options.redis);
+    this.redis = initRedis(config);
+    this.db = db;
 };

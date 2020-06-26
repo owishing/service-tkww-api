@@ -8,7 +8,9 @@ const Plugin = function Plugin() {
 
 Plugin.prototype = Object.assign(Plugin.prototype, {
     config: require('./methods/config'),
-    healthCheck: require('./methods/health-check')
+    healthCheck: require('./methods/health-check'),
+    getUser: require('./methods/get-user'),
+    getProduct: require('./methods/get-product')
 });
 
 module.exports = Plugin;

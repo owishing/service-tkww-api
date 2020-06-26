@@ -8,10 +8,23 @@ services:
       - .:/code
     environment:
       NODE_ENV:
+    links:
+      - postgres
+      - redis
+    command: >
+      sh -c "
+            npm install
+            NODE_ENV=development npx sequelize-cli db:migrate &&
+            NODE_ENV=development npx sequelize-cli db:seed:all &&
+            NODE_ENV=development node src/service.js
+            "
   redis:
     image: redis:alpine
+    ports:
+      - 6379:6379
   postgres:
     image: postgres:alpine
-    restart: always
+    ports:
+      - 5432:5432
     environment:
       POSTGRES_PASSWORD: postgres
