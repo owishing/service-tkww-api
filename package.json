@@ -4,7 +4,8 @@
   "description": "Service tkww api",
   "main": "src/service.js",
   "scripts": {
-    "dev": "NODE_ENV=development docker-compose up && NODE_ENV=development docker-compose rm -fsv"
+    "dev": "NODE_ENV=development docker-compose up && docker-compose rm -fsv",
+    "test": "NODE_ENV=test docker-compose up && docker-compose rm -fsv"
   },
   "author": "",
   "license": "ISC",

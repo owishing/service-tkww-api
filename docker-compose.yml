@@ -11,13 +11,6 @@ services:
     links:
       - postgres
       - redis
-    command: >
-      sh -c "
-            npm install
-            NODE_ENV=development npx sequelize-cli db:migrate &&
-            NODE_ENV=development npx sequelize-cli db:seed:all &&
-            NODE_ENV=development node src/service.js
-            "
   redis:
     image: redis:alpine
     ports:
