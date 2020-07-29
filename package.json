@@ -5,7 +5,7 @@
   "main": "src/service.js",
   "scripts": {
     "dev": "NODE_ENV=development docker-compose up && docker-compose rm -fsv",
-    "test": "NODE_ENV=test docker-compose up && docker-compose rm -fsv"
+    "test": "NODE_ENV=test docker-compose up --abort-on-container-exit && docker-compose rm -fsv"
   },
   "author": "",
   "license": "ISC",

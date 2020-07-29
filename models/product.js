@@ -25,12 +25,12 @@ module.exports = (sequelize) => {
         type: DataTypes.DOUBLE,
       },
       createdAt: {
-        type: DataTypes.STRING,
+        type: DataTypes.DATE,
         field: "created_at",
         defaultValue: DataTypes.NOW,
       },
       updatedAt: {
-        type: DataTypes.STRING,
+        type: DataTypes.DATE,
         field: "updated_at",
         defaultValue: DataTypes.NOW,
       },

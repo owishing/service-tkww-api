@@ -28,6 +28,18 @@ const entryPoints = function(server, plugin) {
     });
 
     server.route({
+        method : 'POST',
+        path   : '/user',
+        handler: plugin.createUser,
+        options: {
+            auth       : false,
+            description: 'Create user endpoint',
+            notes      : 'Create a user.',
+            tags       : ['api']
+        }
+    });
+
+    server.route({
         method : 'GET',
         path   : '/product/{id}',
         handler: plugin.getProduct,
