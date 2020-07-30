@@ -20,5 +20,7 @@ if [[ $NODE_ENV == $DEV_MODE ]]; then
 fi
 if [[ $NODE_ENV == $TEST_MODE ]]; then
 	npm install
+	npx sequelize-cli db:migrate
+	npx sequelize-cli db:seed:all
 	npx nyc --reporter=lcov --reporter=text-summary ./node_modules/.bin/mocha ./src/*/test/ --recursive --exit
 fi

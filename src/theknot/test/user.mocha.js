@@ -2,7 +2,7 @@
 
 const Server = require('./server');
 
-describe('Product testing', function() {
+describe('User testing', function() {
     let server;
     before(async function() {
         console.log('Start testing');
@@ -15,18 +15,18 @@ describe('Product testing', function() {
         await server.stop();
     });
 
-    describe('GET products', function() {
-        it('should response correct product info.', function() {
+    describe('GET Users', function() {
+        it('should response correct user info.', function() {
             return server.inject({
                 method: 'GET',
-                url   : '/product/1'
+                url   : '/user/1'
             }).then(function(response) {
                 const result = response.result.dataValues;
                 response.statusCode.should.equal(200);
-                result.name.should.equal('Milk');
-                result.sku.should.equal('SKU-000000');
-                result.category.should.equal('Food');
-                result.price.should.equal(6.60);
+                result.firstName.should.equal('John');
+                result.lastName.should.equal('Doe');
+                result.email.should.equal('owishing@xogrp.com');
+                result.telephone.should.equal('18627096258');
             });
         });
     });
